@@ -1,0 +1,39 @@
+# How It Works: Face Detection using OpenCV
+
+## Overview
+This application uses computer vision to detect human faces in real-time using a webcam. It relies on the OpenCV library and Haar Cascade classifiers.
+
+## Technologies Used
+
+1.  **OpenCV (Open Source Computer Vision Library):**
+    - A huge open-source library for computer vision, machine learning, and image processing.
+    - Used here for capturing video, processing images, and drawing graphics (rectangles).
+
+2.  **Haar Cascade Classifiers:**
+    - An object detection method proposed by Paul Viola and Michael Jones.
+    - It is a machine learning based approach where a cascade function is trained from a lot of positive and negative images.
+    - `haarcascade_frontalface_default.xml` contains the pre-trained data specifically for detecting frontal faces.
+
+## Code Breakdown
+
+### 1. Initialization
+- **Import Libraries:** `import cv2` brings in the OpenCV functions.
+- **Load Cascade:** `cv2.CascadeClassifier('haarcascade_frontalface_default.xml')` loads the pre-trained face detection model.
+- **Open Webcam:** `cv2.VideoCapture(0)` connects to the default camera (index 0).
+
+### 2. Main Loop
+The script enters a continuous loop (`while True`) to process video frames one by one.
+
+1.  **Read Frame:** `video_capture.read()` grabs a single image (frame) from the webcam.
+2.  **Grayscale Conversion:** `cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)` converts the color image to black and white.
+    - *Why?* Face detection algorithms work faster and more strictly on grayscale images as color information is not needed for detecting shapes/features.
+3.  **Detection:** `face_cascade.detectMultiScale(...)` scans the image for faces.
+    - `scaleFactor`: How much the image size is reduced at each image scale.
+    - `minNeighbors`: How many neighbors each candidate rectangle should have to retain it. Higher values result in fewer detections but with higher quality (less false positives).
+4.  **Drawing Results:** The code loops through detected faces (given as x, y coordinates, width, and height) and draws green rectangles around them using `cv2.rectangle`.
+5.  **Display:** `cv2.imshow('Video', frame)` shows the processed frame in a window.
+
+### 3. Exit and Cleanup
+- The loop listens for the 'q' key. If pressed, it breaks the loop.
+- `video_capture.release()` frees up the camera so other apps can use it.
+- `cv2.destroyAllWindows()` closes the application window.
