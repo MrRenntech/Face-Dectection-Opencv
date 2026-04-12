@@ -1,58 +1,27 @@
-# 👁️ Face Detection using OpenCV (Real-Time)
+# 👁️ Face Detection OpenCV
 
-A real-time face detection app using OpenCV and Haar Cascades. It uses your webcam to detect faces and highlight them with a green rectangle.
+<div align="center">
+  ![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?style=for-the-badge&logo=opencv)
+  ![Python](https://img.shields.io/badge/Python-Script-blue?style=for-the-badge&logo=python)
+</div>
 
----
-
-## 🎥 Live Demo
-
-> When the script runs, it opens your webcam and shows live face detection in a pop-up window.
-
----
-
-## 🧰 Tech Stack
-
-- **Python 3.x**
-- **OpenCV**
-- **Haar Cascade Classifier**
+Real-time face detection app using OpenCV's Haar Cascades.
 
 ---
 
-## 🛠️ Installation and Setup
+## 🏗️ Pipeline Architecture
 
-Follow these steps to run the project on your local machine:
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/MrRenntech/face-detection-opencv
-cd face-detection-opencv
+```mermaid
+graph LR
+    Cam[Live WebCam stream] --> CV[OpenCV VideoCapture]
+    CV --> Gray[Grayscale Conversion]
+    Gray --> Haar[Haar Cascade Classifier]
+    Haar --> Rect[Draw Green Bounding Box]
+    Rect --> UI[cv2.imshow]
 ```
 
-### 2. Install Requirements
-
-You can easily install the required dependencies using the provided batch file:
-
+## 🚀 Quick Start
 ```bash
 install_requirements.bat
-```
-
-Or manually:
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Run the Application
-
-Launch the application using the batch file:
-
-```bash
 launch_app.bat
-```
-
-Or manually:
-
-```bash
-python face-recognition.py
 ```
