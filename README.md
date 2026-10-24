@@ -1,14 +1,12 @@
-<div align="center">
-  <img src="assets/banner.png" alt="Banner" width="100%" />
-  
-  <br/>
-  
-  ![Python](https://img.shields.io/badge/Python-Dynamic-blue?style=for-the-badge&logo=python&logoColor=white)
-  ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
-  ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-</div>
+<p align="center"><img src="assets/github-banner.svg" alt="REAL-TIME FACE DETECTION" width="100%" /></p>
 
-# 👁️ Face Detection using OpenCV (Real-Time)
+<h1 align="center">REAL-TIME FACE DETECTION</h1>
+
+<p align="center">A webcam demo that detects faces with OpenCV Haar cascades and highlights them in a live preview.</p>
+
+<p align="center"><sub>Python · OpenCV · Computer Vision</sub></p>
+
+---
 
 A real-time face detection app using OpenCV and Haar Cascades. It uses your webcam to detect faces and highlight them with a green rectangle.
 
